@@ -1,0 +1,56 @@
+<html>
+<head>
+<script>
+function generateEval() {
+  var rnd = Math.random();
+  var s = "Ты молодец!";
+  if (rnd<=0.33) s = "Ты норм, сойдёт";
+  if (rnd>0.66) s = "Ты не справляешься...";
+  s += "<br>\n"
+  return s;
+}
+
+function generateAdvice() {
+  var rnd = Math.random();
+  var s = "Купи биткоин";
+  if (rnd<=0.33) s = "Помой за шкафом";
+  if (rnd>0.66) s = "Ляг спать пораньше";
+  s += "<br>\n"
+  return s;  
+}
+
+function addEval() {
+  var d = document.getElementById("divLeft");
+  d.innerHTML += generateEval();
+}
+
+function addEval10() {
+  var d = document.getElementById("divLeft");
+  for (var i=0; i<10; i++)
+    d.innerHTML += generateEval();
+}
+
+function addAdv() {
+  var d = document.getElementById("divRight");
+  d.innerHTML += generateAdvice();
+}
+
+function addAdv10() {
+  var d = document.getElementById("divRight");
+  for (var i=0; i<10; i++)
+    d.innerHTML += generateAdvice();
+}
+</script>
+</head>
+<body>
+<div id="divHead" style="display:block;border:3px">
+<input type="button" value="Оценить" onclick="return addEval();">
+<input type="button" value="Много Оценить" onclick="return addEval10()">
+<input type="button" value="Посоветовать" onclick="return addAdv()">
+<input type="button" value="Насоветовать" onclick="return addAdv10()">
+</div>
+<div id="divLeft" style="display:table-cell">
+</div>
+<div id="divRight" style="display:table-cell">
+</div>
+</body>
